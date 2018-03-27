@@ -26,7 +26,7 @@ public class AnnouncementController {
 		int total_rows = announcementService.count();
 		int current_pages = Integer.parseInt(reqMap.get("current_page").toString());
 		int page_size = Integer.parseInt(reqMap.get("page_size").toString());
-		boolean desc = Boolean.parseBoolean(reqMap.get("sort").toString());
+		boolean desc = Boolean.parseBoolean(reqMap.get("desc_sort").toString());
 		Page page = new Page(total_rows, current_pages, page_size, desc);
 		
 		List<Announcement> announce = announcementService.list(page);
@@ -64,18 +64,18 @@ public class AnnouncementController {
 	
 	@RequestMapping(path= {"/stick"})
 	public String stick(@RequestBody Map<String, Object> reqMap) {
-		boolean flag = announcementService.stick(Integer.parseInt(reqMap.get("ad_ID").toString()));
+		boolean flag = announcementService.stick(Integer.parseInt(reqMap.get("a_ID").toString()));
 		return flag ? "\"result\":\"success\"" : "\"result\":\"error\"";
 	}
 	@RequestMapping(path= {"/unstick"})
 	public String unstick(@RequestBody Map<String, Object> reqMap) {
-		boolean flag = announcementService.unstick(Integer.parseInt(reqMap.get("ad_ID").toString()));
+		boolean flag = announcementService.unstick(Integer.parseInt(reqMap.get("a_ID").toString()));
 		return flag ? "\"result\":\"success\"" : "\"result\":\"error\"";
 	}
 	
 	@RequestMapping(path= {"/delete"})
 	public String delete(@RequestBody Map<String, Object> reqMap) {
-		boolean flag = announcementService.delete(Integer.parseInt(reqMap.get("ad_ID").toString()));
+		boolean flag = announcementService.delete(Integer.parseInt(reqMap.get("a_ID").toString()));
 		return flag ? "\"result\":\"success\"" : "\"result\":\"error\"";
 	}
 

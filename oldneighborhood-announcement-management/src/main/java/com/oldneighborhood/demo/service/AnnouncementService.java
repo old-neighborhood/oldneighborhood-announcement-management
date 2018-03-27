@@ -3,6 +3,7 @@ package com.oldneighborhood.demo.service;
 import java.util.List;
 
 import com.oldneighborhood.demo.entity.Announcement;
+import com.oldneighborhood.demo.entity.Page;
 /**
  * 
  * @ClassName: AnnouncementService  
@@ -13,14 +14,20 @@ import com.oldneighborhood.demo.entity.Announcement;
  */
 public interface AnnouncementService {
 	
-	public List<Announcement> list();
+	public int count();
+	
+	public List<Announcement> list(Page page);
 	
 	public Announcement release(Announcement announcement);
 	
 	public boolean modify(Announcement announcement);
 	
-	public boolean stick(String a_ID);
+	public boolean stick(Integer a_ID);
 	
-	public boolean delete(String a_ID);
+	public boolean unstick(Integer a_ID);
+	
+	public boolean delete(Integer a_ID);
+	
+	public boolean view(Integer a_ID);
 
 }

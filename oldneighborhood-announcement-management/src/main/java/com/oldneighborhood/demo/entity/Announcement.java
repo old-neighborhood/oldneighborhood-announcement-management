@@ -38,7 +38,8 @@ public class Announcement implements Serializable{
 	private String a_author;
 	@Column(columnDefinition="int default 0")
 	private Integer a_view;
-	@Column(columnDefinition="timestamp not null default now()", updatable=false)
+//	@Column(columnDefinition="timestamp not null default now()", updatable=false)
+	@Column(columnDefinition="timestamp not null default now()")
 	private Timestamp a_date;
 	
 	private Integer ad_ID;

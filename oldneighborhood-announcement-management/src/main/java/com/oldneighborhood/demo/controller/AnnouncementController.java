@@ -63,6 +63,7 @@ public class AnnouncementController {
 	@RequestMapping(path= {"/modify"})
 	public String modify(@RequestBody Map<String, Object> reqMap) {
 		Announcement annouce = new Announcement(
+				Integer.parseInt(reqMap.get("a_ID").toString()),
 				reqMap.get("a_title").toString(), 
 				reqMap.get("a_content").toString(), 
 				reqMap.get("a_image").toString(), 

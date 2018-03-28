@@ -56,8 +56,9 @@ public class Announcement implements Serializable{
 	}
 	
 	//修改公告的参数
-	public Announcement(String a_title, String a_content, String a_image, String a_author) {
+	public Announcement(Integer a_ID, String a_title, String a_content, String a_image, String a_author) {
 		super();
+		this.a_ID = a_ID;
 		this.a_title = a_title;
 		this.a_content = a_content;
 		this.a_image = a_image;

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.oldneighborhood.demo.dao.AnnouncementDao;
 import com.oldneighborhood.demo.entity.Announcement;
@@ -40,6 +41,7 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 	}
 
 	@Override
+	@Transactional
 	public Announcement release(Announcement announcement) {
 		Announcement newannouncement = announcementDao.saveAndFlush(announcement);
 		System.out.println(newannouncement.toString());
@@ -47,6 +49,7 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 	}
 
 	@Override
+	@Transactional
 	public boolean modify(Announcement announcement) {
 		boolean flag = false;
 		try {
@@ -61,6 +64,7 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 	}
 
 	@Override
+	@Transactional
 	public boolean stick(Integer a_ID) {
 		boolean flag = false;
 		try {
@@ -72,6 +76,7 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 		return flag;
 	}
 	@Override
+	@Transactional
 	public boolean unstick(Integer a_ID) {
 		boolean flag = false;
 		try {
@@ -85,6 +90,7 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 
 
 	@Override
+	@Transactional
 	public boolean delete(Integer a_ID) {
 		boolean flag = false;
 		try {
@@ -98,6 +104,7 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 	}
 
 	@Override
+	@Transactional
 	public boolean view(Integer a_ID) {
 		Announcement announce = announcementDao.findOne(a_ID);
 		announcementDao.view( announce.getA_view() + 1, a_ID);

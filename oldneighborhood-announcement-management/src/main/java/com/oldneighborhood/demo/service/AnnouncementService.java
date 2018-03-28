@@ -18,6 +18,8 @@ public interface AnnouncementService {
 	
 	public List<Announcement> list(Page page);
 	
+	public Announcement getdetail(Integer a_ID);
+	
 	public Announcement release(Announcement announcement);
 	
 	public boolean modify(Announcement announcement);

@@ -32,12 +32,18 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 		System.out.println(list.toString());
 		return list;
 	}
+	
+	@Override
+	public Announcement getdetail(Integer a_ID) {
+		Announcement announce = announcementDao.findOne(a_ID);
+		return announce;
+	}
 
 	@Override
 	public Announcement release(Announcement announcement) {
-		Announcement newannoucement = announcementDao.saveAndFlush(announcement);
-		System.out.println(newannoucement.toString());
-		return newannoucement;
+		Announcement newannouncement = announcementDao.saveAndFlush(announcement);
+		System.out.println(newannouncement.toString());
+		return newannouncement;
 	}
 
 	@Override

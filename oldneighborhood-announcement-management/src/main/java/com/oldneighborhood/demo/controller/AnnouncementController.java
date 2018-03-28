@@ -13,6 +13,7 @@ import com.oldneighborhood.demo.entity.Page;
 import com.oldneighborhood.demo.service.AnnouncementService;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 @RestController
 @RequestMapping(path= {"/announcement"})
@@ -49,6 +50,14 @@ public class AnnouncementController {
 		}else {
 			return "\"result\":\"error\"";
 		}
+	}
+	
+	@RequestMapping(path= {"/announcedetail"})
+	public String detail(@RequestBody Map<String, Object> reqMap) {
+		Announcement announce = announcementService.getdetail(
+				Integer.parseInt(reqMap.get("a_ID").toString()));
+		JSONObject json = JSONObject.fromObject(announce);
+		return json.toString();
 	}
 	
 	@RequestMapping(path= {"/modify"})

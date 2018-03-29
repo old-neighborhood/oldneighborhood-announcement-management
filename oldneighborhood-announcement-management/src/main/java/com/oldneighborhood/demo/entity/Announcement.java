@@ -42,11 +42,11 @@ public class Announcement implements Serializable{
 	@Column(columnDefinition="timestamp not null default now()")
 	private Timestamp a_date;
 	
-	private Integer ad_ID;
+	private String ad_ID;
 	@Column(columnDefinition="tinyint not null default 0")
 	private Boolean isSticky;
 	//新建公告的参数
-	public Announcement(String a_title, String a_content, String a_image, String a_author, Integer ad_ID) {
+	public Announcement(String a_title, String a_content, String a_image, String a_author, String ad_ID) {
 		super();
 		this.a_title = a_title;
 		this.a_content = a_content;

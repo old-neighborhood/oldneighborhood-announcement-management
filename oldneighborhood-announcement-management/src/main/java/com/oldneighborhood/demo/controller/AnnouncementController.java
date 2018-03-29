@@ -42,7 +42,7 @@ public class AnnouncementController {
 				reqMap.get("a_content").toString(), 
 				reqMap.get("a_image").toString(), 
 				reqMap.get("a_author").toString(), 
-				Integer.parseInt(reqMap.get("ad_ID").toString()));
+				reqMap.get("ad_ID").toString());
 		
 		Announcement newannounce = announcementService.release(announce);
 		if (newannounce != null) {

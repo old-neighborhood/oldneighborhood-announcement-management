@@ -43,6 +43,8 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 	@Override
 	@Transactional
 	public Announcement release(Announcement announcement) {
+		announcement.setA_view(0);
+		announcement.setIsSticky(false);
 		Announcement newannouncement = announcementDao.saveAndFlush(announcement);
 		System.out.println(newannouncement.toString());
 		return newannouncement;

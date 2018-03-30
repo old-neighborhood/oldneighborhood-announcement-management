@@ -26,7 +26,6 @@ import lombok.RequiredArgsConstructor;
 @Builder
 public class Announcement implements Serializable{
 	private static final long serialVersionUID = 3127219252441967623L;
-	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer a_ID;

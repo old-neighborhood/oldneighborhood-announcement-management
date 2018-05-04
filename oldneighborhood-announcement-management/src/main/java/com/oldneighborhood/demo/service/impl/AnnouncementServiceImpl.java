@@ -33,10 +33,15 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 		System.out.println(list.toString());
 		return list;
 	}
-	
+	/**
+	 * 查看详细信息，浏览数自增
+	 */
 	@Override
+	@Transactional
 	public Announcement getdetail(Integer a_ID) {
 		Announcement announce = announcementDao.findOne(a_ID);
+		announcementDao.view(announce.getA_view() + 1, a_ID);
+		announce.setA_view(announce.getA_view() + 1);
 		return announce;
 	}
 

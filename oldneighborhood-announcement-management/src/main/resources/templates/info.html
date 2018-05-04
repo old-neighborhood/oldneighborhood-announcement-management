@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>neighborhood-annoucement-service</title>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>neighborhood-annoucement-service</th>
+				<th>url</th>
+				<th>request</th>
+				<th>response</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>公告列表[置顶在上]</td>
+				<td>/announcement/list</td>
+				<td>{"current_page":(int), "page_size":(int), "desc_sort":true/false}</td>
+				<td>[obj1,obj2,...]</td>
+			</tr>
+			<tr>
+				<td>发布公告(ID自增的Integer)</td>
+				<td>/announcement/release</td>
+				<td>{"a_title":"", "a_content":"", "a_image":"", "a_author":"", "ad_ID":""}</td>
+				<td>{"result":"success/error/overdue"}</td>
+			</tr>
+			<tr>
+				<td>查看公告(浏览量自增)</td>
+				<td>/announcement/announcedetail</td>
+				<td>{"a_ID":a_ID}</td>
+				<td>{"a_ID":a_ID, "a_title":a_title ,...}</td>
+			</tr>
+			<tr>
+				<td>更新公告</td>
+				<td>/announcement/modify</td>
+				<td>{"a_ID":a_ID, "a_title":"", "a_content":"", "a_image":"", "a_author":""}</td>
+				<td>{"result":"success"/"error"}</td>
+			</tr>
+			<tr>
+				<td>置顶公告</td>
+				<td>/announcement/stick</td>
+				<td>{"a_ID":a_ID}</td>
+				<td>{"result":"success"/"error"}</td>
+			</tr>
+			<tr>
+				<td>取消置顶</td>
+				<td>/announcement/unstick</td>
+				<td>{"a_ID":a_ID}</td>
+				<td>{"result":"success"/"error"}</td>
+			</tr>
+			<tr>
+				<td>删除公告</td>
+				<td>/announcement/delete</td>
+				<td>{"a_ID":a_ID}</td>
+				<td>{"result":"success"/"error"}</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

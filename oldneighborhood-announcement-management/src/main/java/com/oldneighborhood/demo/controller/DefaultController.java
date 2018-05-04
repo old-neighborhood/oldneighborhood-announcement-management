@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
  *
  */
 @Controller
-@RequestMapping(path= {"/announcement"})
 public class DefaultController {
 	
+	@RequestMapping("/info")
 	public String announce() {
-		return "/announcement";
+		return "/info";
 	}
 
 }

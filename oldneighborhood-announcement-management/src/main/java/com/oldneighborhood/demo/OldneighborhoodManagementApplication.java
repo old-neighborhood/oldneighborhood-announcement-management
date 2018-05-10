@@ -11,9 +11,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableEurekaClient
 @EnableFeignClients
 @ComponentScan("com.oldneighborhood.demo")
-public class OldneighborhoodAnnouncementManagementApplication {
+public class OldneighborhoodManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(OldneighborhoodAnnouncementManagementApplication.class, args);
+		SpringApplication.run(OldneighborhoodManagementApplication.class, args);
 	}
 }

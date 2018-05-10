@@ -23,7 +23,7 @@ public class DruidConfig {
 	@Bean
 	@ConfigurationProperties(prefix="druid")
 	public DataSource druidSource() {
-		System.out.println("使用druid数据源");
+//		System.out.println("使用druid数据源");
 		return new DruidDataSource();
 	}
 

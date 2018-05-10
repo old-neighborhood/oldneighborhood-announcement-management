@@ -16,7 +16,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 @RestController
-//@RequestMapping(path= {"/announcement"})
+@RequestMapping(path= {"/announcement"})
 public class AnnouncementController {
 	
 	@Autowired

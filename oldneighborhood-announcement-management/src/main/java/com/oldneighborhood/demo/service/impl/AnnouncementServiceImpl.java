@@ -18,6 +18,11 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 	private AnnouncementDao announcementDao;
 	
 	@Override
+	public List<Announcement> listall() {
+		return announcementDao.findAll();
+	}
+	
+	@Override
 	public int count() {
 		return (int) announcementDao.count();
 	}

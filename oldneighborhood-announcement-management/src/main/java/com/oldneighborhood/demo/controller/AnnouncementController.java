@@ -21,6 +21,12 @@ public class AnnouncementController {
 	
 	@Autowired
 	private AnnouncementService announcementService;
+	@RequestMapping("/listall")
+	public String listall() {
+		List<Announcement> annouce = announcementService.listall();
+		JSONArray json = JSONArray.fromObject(annouce);
+		return json.toString();
+	}
 	
 	@RequestMapping(path= {"/list"})
 	public String list(@RequestBody Map<String, Object> reqMap) {

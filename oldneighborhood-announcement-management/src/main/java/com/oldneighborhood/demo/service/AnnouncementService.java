@@ -16,6 +16,8 @@ public interface AnnouncementService {
 	
 	public int count();
 	
+	public List<Announcement> listall();
+	
 	public List<Announcement> list(Page page);
 	
 	public Announcement getdetail(Integer a_ID);

@@ -9,7 +9,7 @@
 		<thead>
 			<tr>
 				<th width="20%">neighborhood-management-service</th>
-				<th width="20%">url</th>
+				<th width="20%">url(/management)</th>
 				<th width="40%">request</th>
 				<th width="20%">response</th>
 			</tr>
@@ -19,6 +19,12 @@
 				<td>公告列表[置顶在上]</td>
 				<td>/announcement/list</td>
 				<td>{"current_page":(int), "page_size":(int), "desc_sort":true/false}</td>
+				<td>[obj1,obj2,...]</td>
+			</tr>
+			<tr>
+				<td>所有公告的列表</td>
+				<td>/announcement/listall</td>
+				<td></td>
 				<td>[obj1,obj2,...]</td>
 			</tr>
 			<tr>

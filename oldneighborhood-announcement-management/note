@@ -11,6 +11,7 @@
 6.Chrome 本地跨域资源问题
 	--1.关闭浏览器
 	--2.cmd 运行"[chrome.exe file path]" --args --disable-web-security --user-data-dir
+		"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --args --disable-web-security --user-data-dir
 	--3.浏览器启动弹出警告即成功
 	
 7.columnDefinition属性表示创建表时，该字段创建的SQL语句，一般用于通过Entity生成表定义时使用。

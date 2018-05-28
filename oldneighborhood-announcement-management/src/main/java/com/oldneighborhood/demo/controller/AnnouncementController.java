@@ -28,6 +28,13 @@ public class AnnouncementController {
 		return json.toString();
 	}
 	
+	@RequestMapping("/listSticky")
+	public String listBySticky() {
+		List<Announcement> annouce = announcementService.listBySticky();
+		JSONArray json = JSONArray.fromObject(annouce);
+		return json.toString();
+	}
+	
 	@RequestMapping(path= {"/list"})
 	public String list(@RequestBody Map<String, Object> reqMap) {
 		int total_rows = announcementService.count();
@@ -52,9 +59,9 @@ public class AnnouncementController {
 		
 		Announcement newannounce = announcementService.release(announce);
 		if (newannounce != null) {
-			return "\"result\":\"success\"";
+			return "{\"result\":\"success\"}";
 		}else {
-			return "\"result\":\"error\"";
+			return "{\"result\":\"error\"}";
 		}
 	}
 	
@@ -75,24 +82,24 @@ public class AnnouncementController {
 				reqMap.get("a_image").toString(), 
 				reqMap.get("a_author").toString());
 		boolean flag = announcementService.modify(annouce);
-		return flag ? "\"result\":\"success\"" : "\"result\":\"error\"";
+		return flag ? "{\"result\":\"success\"}" : "{\"result\":\"error\"}";
 	}
 	
 	@RequestMapping(path= {"/stick"})
 	public String stick(@RequestBody Map<String, Object> reqMap) {
 		boolean flag = announcementService.stick(Integer.parseInt(reqMap.get("a_ID").toString()));
-		return flag ? "\"result\":\"success\"" : "\"result\":\"error\"";
+		return flag ? "{\"result\":\"success\"}" : "{\"result\":\"error\"}";
 	}
 	@RequestMapping(path= {"/unstick"})
 	public String unstick(@RequestBody Map<String, Object> reqMap) {
 		boolean flag = announcementService.unstick(Integer.parseInt(reqMap.get("a_ID").toString()));
-		return flag ? "\"result\":\"success\"" : "\"result\":\"error\"";
+		return flag ? "{\"result\":\"success\"}" : "{\"result\":\"error\"}";
 	}
 	
 	@RequestMapping(path= {"/delete"})
 	public String delete(@RequestBody Map<String, Object> reqMap) {
 		boolean flag = announcementService.delete(Integer.parseInt(reqMap.get("a_ID").toString()));
-		return flag ? "\"result\":\"success\"" : "\"result\":\"error\"";
+		return flag ? "{\"result\":\"success\"}" : "{\"result\":\"error\"}";
 	}
 
 }

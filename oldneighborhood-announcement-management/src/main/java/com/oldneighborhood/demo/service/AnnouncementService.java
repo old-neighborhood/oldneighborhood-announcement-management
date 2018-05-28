@@ -18,6 +18,8 @@ public interface AnnouncementService {
 	
 	public List<Announcement> listall();
 	
+	public List<Announcement> listBySticky();
+	
 	public List<Announcement> list(Page page);
 	
 	public Announcement getdetail(Integer a_ID);

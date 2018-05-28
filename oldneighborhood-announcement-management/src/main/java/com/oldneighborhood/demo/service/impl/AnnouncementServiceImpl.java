@@ -23,6 +23,11 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 	}
 	
 	@Override
+	public List<Announcement> listBySticky() {
+		return announcementDao.listAllBySticky();
+	}
+	
+	@Override
 	public int count() {
 		return (int) announcementDao.count();
 	}

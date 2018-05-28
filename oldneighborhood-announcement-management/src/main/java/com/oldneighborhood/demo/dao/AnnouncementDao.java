@@ -9,6 +9,12 @@ import org.springframework.data.jpa.repository.Query;
 import com.oldneighborhood.demo.entity.Announcement;
 
 public interface AnnouncementDao extends JpaRepository<Announcement, Integer>{
+	
+	@Query(value = "select * from announcement order by isSticky desc, a_date desc", nativeQuery = true)
+	public List<Announcement> listAllByDefault();
+	
+	@Query(value = "select * from announcement where isSticky=1 order by a_date desc", nativeQuery = true)
+	public List<Announcement> listAllBySticky();
 	//order by isSticky desc, a_date
 	@Query(value = "select * from announcement order by isSticky desc, a_date asc limit ?, ? ", nativeQuery = true)
 	public List<Announcement> listByPageUp(int offset_row, int page_size);

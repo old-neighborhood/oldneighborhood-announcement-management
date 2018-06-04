@@ -23,7 +23,7 @@ public class SiteServiceImpl implements SiteService{
 		Site newsite = null;
 //		site.setSite_image("");
 		try {
-			newsite = siteDao.saveAndFlush(site);
+			newsite = siteDao.save(site);
 			System.out.println(newsite);
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 @WebServlet(
 			urlPatterns= {"/druid/*"} , 
 			initParams = {
-					@WebInitParam(name="allow" , value="127.0.0.1") ,
+//					@WebInitParam(name="allow" , value="127.0.0.1") ,
 //					@WebInitParam(name="deny" , value="") ,
 					@WebInitParam(name="loginUsername" , value="oldneighborhood") , 
 					@WebInitParam(name="loginPassword" , value="oldneighborhood") , 

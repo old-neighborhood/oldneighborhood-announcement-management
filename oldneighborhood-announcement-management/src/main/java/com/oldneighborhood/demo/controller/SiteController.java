@@ -41,7 +41,7 @@ public class SiteController {
 		Site newsite = siteService.addSite(site);
 		
 		if (newsite!=null) {
-			return "{\"result\":\"success\"}";
+			return "{\"result\":\"success\",\"site_ID\":\"" + newsite.getSite_ID() + "\"}";
 		}else {
 			return "{\"result\":\"error\"}";
 		}
@@ -84,6 +84,14 @@ public class SiteController {
 		return siteService.updateSite(site) ? "{\"result\":\"success\"}" : "{\"result\":\"error\"}" ;
 	}
 	
+	@RequestMapping(path= {"/updatepart"})
+	public String updateSitePart(@RequestBody Map<String, Object> reqMap) {
+		Integer id = Integer.parseInt(reqMap.get("site_ID").toString());
+		String image = reqMap.get("site_image").toString();
+		String intro = reqMap.get("site_intro").toString();
+		return siteService.updateSitePart(image, intro, id) ? "{\"result\":\"success\"}" : "{\"result\":\"error\"}" ;
+	}
+	
 	@RequestMapping(path= {"/findID"})
 	public String findSiteByID(@RequestBody Map<String, Object> reqMap) {
 		Site site = siteService.find(
@@ -93,13 +101,6 @@ public class SiteController {
 		return json.toString();
 	}
 	
-//	@RequestMapping(path= {"/find"})
-//	public String findSite(@RequestBody Map<String, Object> reqMap) {
-//		Site site = siteService.findByName(reqMap.get("site_name").toString());
-//		JSONObject json = JSONObject.fromObject(site);
-//		System.out.println(json);
-//		return json.toString();
-//	}
 	
 	@RequestMapping(path= {"/search"})
 	public String searchSite(@RequestBody Map<String, Object> reqMap) {

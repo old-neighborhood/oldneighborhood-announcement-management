@@ -18,6 +18,12 @@ public interface SiteDao extends JpaRepository<Site, Integer>{
 	@Query(value = "select * from site where site_name = ? ", nativeQuery = true)
 	public Site findByName(String sitename);
 	
+	//部分完善
+	@Modifying
+	@Query(value = "update site set site_image = ?, site_intro = ? where site_ID = ? ", 
+			nativeQuery = true) 
+	public void updateSitePart(String site_image, String site_intro, Integer site_ID);
+	
 	@Modifying
 	@Query(value = "update site "
 					+ "set site_name = ?, site_address = ?, site_image = ?, "
@@ -25,7 +31,7 @@ public interface SiteDao extends JpaRepository<Site, Integer>{
 					+ "site_email = ?, site_ticket = ?, site_time = ? "
 					+ "where site_ID = ? ", 
 			nativeQuery = true) 
-	public void updateSiteInfo(String site_name, String site_address, 
+	public void updateSite(String site_name, String site_address, 
 			String site_image, String site_intro, String site_tele, 
 			String site_wed, String site_email, Double site_ticket, 
 			String site_time, Integer site_ID);

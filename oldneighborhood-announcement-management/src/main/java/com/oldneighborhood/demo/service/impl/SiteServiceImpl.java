@@ -98,7 +98,7 @@ public class SiteServiceImpl implements SiteService{
 	public boolean updateSite(Site site) {
 		boolean flag = false;
 		try {
-			siteDao.updateSiteInfo(
+			siteDao.updateSite(
 					site.getSite_name(), site.getSite_address(), site.getSite_image(), 
 					site.getSite_intro(), site.getSite_tele(), site.getSite_web(), site.getSite_email(), 
 					site.getSite_ticket(), site.getSite_time(), site.getSite_ID());
@@ -107,6 +107,18 @@ public class SiteServiceImpl implements SiteService{
 			e.printStackTrace();
 		}
 		return flag;
+	}
+	
+	@Override
+	@Transactional
+	public boolean updateSitePart(String image, String intro, Integer id) {
+		try {
+			siteDao.updateSitePart(image, intro, id);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	//关闭某景点，site_state设置为CLOSED

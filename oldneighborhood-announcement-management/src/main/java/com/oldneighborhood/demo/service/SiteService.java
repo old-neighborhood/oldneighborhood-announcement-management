@@ -20,6 +20,7 @@ public interface SiteService {
 	public List<Site> findByNameLike(String sitename);
 	//精确查找
 //	public Site findByName(String sitename);
+	public boolean updateSitePart(String image, String intro, Integer id);
 	//更新信息
 	public boolean updateSite(Site site);
 	//设置景点关闭

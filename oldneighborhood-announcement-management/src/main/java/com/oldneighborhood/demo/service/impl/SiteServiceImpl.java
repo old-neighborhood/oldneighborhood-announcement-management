@@ -120,6 +120,18 @@ public class SiteServiceImpl implements SiteService{
 		}
 		return false;
 	}
+	
+	@Override
+	@Transactional
+	public boolean updateSiteUp(String name, String address, String ticket, String time, String tele, Integer id) {
+		try {
+			siteDao.updateSiteUp(name, address, ticket, time, tele, id);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 
 	//关闭某景点，site_state设置为CLOSED
 	@Override

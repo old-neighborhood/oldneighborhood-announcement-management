@@ -92,6 +92,18 @@ public class SiteController {
 		return siteService.updateSitePart(image, intro, id) ? "{\"result\":\"success\"}" : "{\"result\":\"error\"}" ;
 	}
 	
+	@RequestMapping(path= {"/updateup"})
+	public String updateSiteUp(@RequestBody Map<String, Object> reqMap) {
+		Integer id = Integer.parseInt(reqMap.get("site_ID").toString());
+		String name = reqMap.get("site_name").toString();
+		String address = reqMap.get("site_address").toString();
+		String ticket = reqMap.get("site_ticket").toString();
+		String time = reqMap.get("site_time").toString();
+		String tele = reqMap.get("site_tele").toString();
+		return siteService.updateSiteUp(name, address, ticket, time, tele, id) ? 
+				"{\"result\":\"success\"}" : "{\"result\":\"error\"}" ;
+	}
+	
 	@RequestMapping(path= {"/findID"})
 	public String findSiteByID(@RequestBody Map<String, Object> reqMap) {
 		Site site = siteService.find(

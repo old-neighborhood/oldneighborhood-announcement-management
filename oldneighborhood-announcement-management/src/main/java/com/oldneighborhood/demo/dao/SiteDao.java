@@ -25,6 +25,13 @@ public interface SiteDao extends JpaRepository<Site, Integer>{
 	public void updateSitePart(String site_image, String site_intro, Integer site_ID);
 	
 	@Modifying
+	@Query(value = "update site set site_name = ?, site_address = ?, site_ticket = ?, "
+			+ "site_time = ?, site_tele = ? where site_ID = ? ", 
+			nativeQuery = true) 
+	public void updateSiteUp(String site_name, String site_address, String site_ticket, 
+			String site_time, String site_tele, Integer site_ID);
+	
+	@Modifying
 	@Query(value = "update site "
 					+ "set site_name = ?, site_address = ?, site_image = ?, "
 					+ "site_intro = ?, site_tele = ?, site_web = ?, "
